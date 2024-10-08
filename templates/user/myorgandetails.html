@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+ background-image:url({% static 'images/blooddonar.jpg' %});
+background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 500px;
+    margin: 22px auto;
+<!--    background-color: #18ee9f;-->
+    padding: 29px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 75px;
+  }
+  h1 {
+    text-align: center;
+    color: darkblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 34px;
+    margin-bottom: 33px;
+    margin-right: 35px;
+  }
+  table {
+    border:1px solid black;
+    border-collapse: collapse;
+    width:100%;
+    border-radius: 10px;
+
+/*     
+    width: 100%;
+    border-collapse: collapse; */
+    margin-top: 15px;
+  }
+  th, td {
+    padding: 8px;
+    border:1px solid black;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  th {
+    border:1px solid black;
+
+    font-size: 25px;
+    color : #000000;
+  }
+  tr:hover {background-color: #D6EEEE;}
+  
+  .button-container {
+            display: flex; /* Use flexbox to align buttons horizontally */
+            justify-content: center; /* Space between the buttons */
+        }
+
+        /* Style the individual buttons */
+        
+        .delete-button {
+            padding: 10px 20px; /* Add padding for better appearance */
+            background-color: #f40c08; /* Blue background color */
+            color: #fff; /* White text color */
+            border: none; /* Remove button border */
+            cursor: pointer;
+            margin: 20px auto;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+        .update-button {
+            margin: 20px auto;
+            padding: 10px 20px; /* Add padding for better appearance */
+            background-color: #05f721; /* Blue background color */
+            color: #fff; /* White text color */
+            border: none; /* Remove button border */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Add some margin to separate the buttons */
+        .delete-button {
+            margin-left: 10px;
+        }
+   ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+<!--  background-color: #333;-->
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: Red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+<!-- <title>My Organ Details</title> -->
+</head>
+<body>
+<ul>
+
+  <li style="float:right"><a href="/user">Back to Home</a></li>
+</ul>
+
+  <div class="container">
+    <h1><u>View Organ Details</u></h1>
+    <table>
+      <tr>
+        <th>Field</th>
+        <th>Details</th>
+      </tr>
+    
+      <tr>
+        <td>Name</td>
+        <td>{{profile.public.fname}} {{profile.public.lname}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{profile.public.email}}</td>
+      </tr>
+      <tr>
+        <td>Phone Number</td>
+        <td>{{profile.public.phone}}</td>
+      </tr>
+      
+       
+      <tr>
+        <td>Blood Group</td>
+        <td>{{profile.public.bloodgroup}}</td>
+      </tr>
+      <tr>
+        <td>Organ</td>
+        <td>{{profile.Organ}}</td>
+      </tr>
+      <tr>
+        <td>Checkup Date</td>
+        <td>{{profile.CheckupDate}}</td>
+      </tr>
+      <tr>
+        <td>Last Organ Donation Date</td>
+        <td>{{profile.LastOrganDonationDate}}</td>
+      </tr>
+      <tr>
+        <td>Health Issues</td>
+        <td>{{profile.healthissue}}</td>
+      </tr>
+      
+
+      <!-- <tr> -->
+<!--       
+      <tr>
+        <td>About Me</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit id libero luctus scelerisque.</td>
+      </tr> -->
+     
+
+    </table>
+
+    <br>
+    
+    <!-- <div class="button-container"> -->
+    <!-- <td><a href="UpdateProfile?id={{profile.id}}"><button class="update-button">Update Profile</button></a></td> -->
+    <!-- <td><a href="deleteprofile?id={{profile.id}}"><button class="delete-button">Delete Profile</button></a></td> -->
+  <!-- </div> -->
+
+  </div>
+</body>
+</html>

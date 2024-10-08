@@ -1,0 +1,68 @@
+{% extends 'admin/base.html'%}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+  
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/bg_4.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Edit Blood Bank</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-12 pr-md-5">
+          <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <input value="{{upd.name}}" type="text" class="form-control px-3 py-3" name="name" placeholder="Add Blood Bank Name" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" autocomplete="off" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+            </div>
+              <div class="form-group">
+              <input value="{{upd.email}}" disabled="True" type="text" class="form-control px-3 py-3" name="email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" required>
+            </div> 
+            <div class="form-group">
+              <input value="{{upd.phone}}" type="text" class="form-control px-3 py-3" name="phone" placeholder="Contact Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" pattern="[6-9]{1}[0-9]{5}[0-9]{4}" title="Enter 10 digit number" required>
+            </div>
+            <div class="form-group">
+                <input value="{{upd.location}}" type="text" id="myInput" class="form-control px-3 py-3" name="location" placeholder="Location" onblur="validateInput()" required>
+            </div> 
+            <div class="form-group">
+              <input type="submit" value="Update" class="btn btn-primary py-3 px-5">
+            </div>
+          </form>
+        
+        </div>
+
+        <!-- <div class="col-md-6" id="map"></div> -->
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateInput() {
+        var input = document.getElementById('myInput');
+        if (input.value.trim() !== input.value) {
+            alert('Leading white space is not allowed!');
+            input.value = input.value.trim(); // Remove leading white space
+            input.focus(); // Set focus back to the input field
+        }
+    }
+  </script>
+
+  {% endblock %}
+  

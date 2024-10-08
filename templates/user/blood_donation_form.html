@@ -1,0 +1,87 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/don.jpeg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Application for Blood Donation </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+            <!-- <div class="form-group">
+                <label >DOB </label>
+                <input type="date" class="form-control px-3 py-3" name="dob" placeholder="Your DOB">
+              </div> -->
+              <!-- <div class="form-group">
+                <input type="text" class="form-control px-3 py-3" name="age" placeholder="Your Age">
+              </div> -->
+             
+              
+              <!-- <div class="form-group">
+                <label>Willing to Donate</label>
+                <label><input type="radio"  id="yes" name="donateblood" value="Yes" >Yes
+                <input type="radio" id="no" name="donateblood" value="No">No</label>
+            </div> -->
+            
+            <div class="form-group">
+              <label >Blood Group </label>
+              <input type="text" class="form-control px-3 py-3" value="{{pro.bloodgroup}}" name="bloodgroup" placeholder="">
+            </div>
+            <div class="form-group">
+              <label >Last Blood Donation Date </label>
+              <input type="date" class="form-control px-3 py-3" value="{{pro.last_donate_date}}"  name="date" placeholder="">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control px-3 py-3" name="health" placeholder="Any Health Problem">
+            </div>
+          
+            <!-- <div class="form-group">
+              <textarea name="" id="" cols="30" rows="7" class="form-control px-3 py-3" placeholder="Message"></textarea>
+            </div> -->
+            <!-- <div class="form-group">
+              <input type="submit" value="Submit " class="btn btn-primary py-3 px-5">
+            </div> --> 
+             <div class="form-group">
+              <input type="submit" value="Submit " class="btn btn-primary py-3 px-5">
+            </div>
+          </form>
+        
+        </div>
+
+        <!-- <div class="col-md-6" > -->
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}

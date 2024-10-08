@@ -1,0 +1,83 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color: rgb(253, 99, 251);">
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<!-- <li style="float: right;"><a class="active" href="/user">Back To Home</a></li> -->
+
+<!-- <section class="block-30 block-30-sm item" style="background-image: url('{% static 'images/bg1.jpg' %}'); height: 140px;" data-stellar-background-ratio="0.5">        <div class="bradcumbContent"> -->
+           
+
+  
+<br>
+ <br><br>
+ <br>
+
+ <div class="container add-emp">
+			<center><h1 style="color:black;"><strong>View Checkup Lists</strong></h1><br></center>
+			<table class="table table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+                        <th class="p-3 mb-2 bg-primary text-light">User Details  </th>
+
+						<th class="p-3 mb-2 bg-primary text-light">Checkup Date </th>
+                        <!-- <th class="p-3 mb-2 bg-primary text-light">Date  </th>
+						<th class="p-3 mb-2 bg-primary text-light">Loctaion</th>
+                        <th class="p-3 mb-2 bg-primary text-light">Status</th> -->
+                        <th class="p-3 mb-2 bg-primary text-light">Assign Hospital</th>
+
+<!--						&lt;!&ndash; <th class="p-3 mb-2 bg-primary text-light">Update</th>-->
+<!--						<th class="p-3 mb-2 bg-primary text-light">Delete</th> &ndash;&gt;-->
+					{% for i in view_checkup  %}
+                    </tr>
+                    <td>{{i.public.fname}},{{i.public.phone}}<br>{{i.public.district}}</td>
+
+                    
+							<td>{{ i.CheckupDate }}</td>
+                            <!-- <td>{{i.issuedate}}</td>
+                            <td>{{ i.exact_location }}</td>
+                            <td>{{i.status}}</td> -->
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <td><textarea name="hospitalname" placeholder="Enter Hospital Name for checkup"></textarea>
+                                    <input type="hidden" name="id" value="{{i.user_id}}">
+                                    <input type="hidden" name="id2" value="{{i.id}}">
+                                    <button type="submit">Reply</button></td></form>
+                          
+                    		
+
+                            <!-- <td><button style="background-color:limegreen"><a href="update?id={{ i.id}}" class=" btn btn-success" >Update</a></button>
+                                <button style="background-color:red"><a href="Reject?id={{ i.id}}" class=" btn btn-danger" >Reject</a></button></td> -->
+
+
+
+              <!-- <td><a class="btn btn-primary py-2 px-3" href="update_btn.php?id=<?php echo $data['id']; ?>">Update</a> </td>
+              <td><a class="btn btn-primary py-2 px-3" href="delete_btn.php?id=<?php echo $data['id']; ?>">Delete</a> </td> -->
+						</tr>
+                {% endfor %}
+
+		    </table>
+		</div>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+    </body>
+  {% endblock %}

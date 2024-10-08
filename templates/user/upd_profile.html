@@ -1,0 +1,118 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/blooddonar.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Profile Updation</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+<!--            <div class="form-group">-->
+<!--              <input type="text" class="form-control px-3 py-3" name="name" placeholder="Your Name">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <input type="text" class="form-control px-3 py-3" name="email" placeholder="Your Email">-->
+<!--            </div>-->
+            <div class="form-group">
+              <input value="{{upd.address}}" type="text" class="form-control px-3 py-3" name="address" placeholder="Your Address">
+            </div>
+            <div class="form-group">
+              <input value="{{upd.phone}}" type="text" class="form-control px-3 py-3" name="phone" placeholder="Your Phone Number">
+            </div>
+<!--            <div class="form-group">-->
+<!--              <label>Gender :</label>-->
+<!--              <label><input type="radio"  id="male" name="gender" value="Male" >Male-->
+<!--              <input type="radio" id="female" name="gender" value="Female">Female</label>-->
+<!--          </div>-->
+            <!-- <div class="form-group">
+              <textarea name="" id="" cols="30" rows="7" class="form-control px-3 py-3" placeholder="Message"></textarea>
+            </div> -->
+            <div class="form-group">
+              <input type="submit" value="Update " class="btn btn-primary py-3 px-5">
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6" >
+
+
+
+<!--            <div class="form-group">-->
+<!--              <label >DOB </label>-->
+<!--              <input type="date" class="form-control px-3 py-3" name="dob" placeholder="Your DOB">-->
+<!--            </div>-->
+            <div class="form-group">
+              <input value="{{upd.age}}" type="text" class="form-control px-3 py-3" name="age" placeholder="Your Age">
+            </div>
+            <!-- <div class="form-group">
+              <input type="text" class="form-control px-3 py-3" placeholder="Your BLood Group">
+            </div> -->
+
+              <!-- <label for="Consume Type">Consume Type</label> -->
+
+
+            <div class="form-group">
+              <!-- <input type="text" class="form-control px-3 py-3" name="district" placeholder="Your District"> -->
+              <div class="form-group">
+                <!-- <label for="District">District:</label> -->
+                <select value="{{upd.district}}" id="district" name="district" class="form-control px-3 py-6" required>
+                  <option value="" disabled selected>Select District</option>
+
+                  <option value="Trivandrum">Trivandrum</option>
+                  <option value="Kollam">Kollam</option>
+                  <option value="Pathanamthitta">Pathanamthitta</option>
+                  <option value="Alappuzha">Alappuzha</option>
+                  <option value="Kottayam">Kottayam</option>
+                  <option value="Idukki">Idukki</option>
+                  <option value="Ernakulam">Ernakulam</option>
+                  <option value="Thrissur">Thrissur</option>
+                  <option value="Palakkad">Palakkad</option>
+                  <option value="Malappuram">Malappuram</option>
+                  <option value="Kozhikode">Kozhikode</option>
+                  <option value="Wayanad">Wayanad</option>
+                  <option value="Kannur">Kannur</option>
+                  <option value="Kasaragod">Kasaragod</option>
+
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+            </div>
+<!--             <div class="form-group">-->
+<!--              <input type="password" class="form-control px-3 py-3" name="password" placeholder="Create a Password">-->
+<!--            </div>-->
+            <!-- <div class="form-group">
+              <textarea name="" id="" cols="30" rows="7" class="form-control px-3 py-3" placeholder="Message"></textarea>
+            </div> -->
+            <!-- <div class="form-group">
+              <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+            </div> -->
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

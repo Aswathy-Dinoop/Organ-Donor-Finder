@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verification</title>
+    <style>
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f0f0f0;
+             */
+            background-image: url("{% static 'images/verify.jpg' %}");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .message-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        strong {
+            color: #008000;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="message-box">
+    <h1>Verify Your Email</h1>
+    <p>An email has been sent to <strong>{{ email.to }}</strong>. Please check your email and click the activation link to complete your registration.</p>
+</div>
+</body>
+</html>

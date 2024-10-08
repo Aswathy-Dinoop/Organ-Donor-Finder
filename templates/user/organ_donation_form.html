@@ -1,0 +1,129 @@
+{% extends 'user/base.html'%}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+ alert("{{ message }}")
+  
+    
+  </script>
+{% endif %}
+
+<div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/don.jpeg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Application for Organ Donation </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form id="demo" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- <div class="form-group">
+               
+              <div class="form-group"> -->
+                <!-- <label for="Consume Type">Consume Type</label> -->
+                <!-- <select id="bloodgroup" name="bloodgroup" class="form-control px-3 py-6">
+                    <option selected>Choose your Blood Group</option>
+                    {% for i in bloodgrp %}
+                    
+                    <option value="{{i.id}}">{{i.group}} </option>
+                {% endfor %}
+           
+                </select>
+              </div> -->
+              <!-- <div class="form-group">
+                <label>Willing to Donate</label>
+                <label><input type="radio"  id="male" name="willingtodonate" value="Yes" >Yes
+                <input type="radio" id="female" name="willingtodonate" value="No" >No</label>
+            </div> -->
+            
+            <div class="form-group">
+              <label>Any Organ Donate Previous</label>
+              <label><input type="radio"  id="male" name="organdonateprevious" value="Yes" >Yes
+              <input type="radio" id="female" name="organdonateprevious" value="No">No</label>
+          </div>
+          
+            <div class="form-group">
+              <label >Last Organ Donation Date </label>
+              <p>Note: If  you have donated organ before, please provide the date of last donation.Otherwise type NA</p>
+              <input type="text" class="form-control px-3 py-3" name="lastdonationdate" placeholder="" required>
+            </div>
+            <div class="form-group">
+              <label >Take an Appointment Date for Full body Checkup </label>
+              <input type="date" class="form-control px-3 py-3" id="dateInput" name="checkupddate" placeholder="" min="" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control px-3 py-3" name="organ" placeholder="Which Organ is to plan for donating" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control px-3 py-3" name="healthissue" placeholder="Any Health Issues" required>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Submit " class="btn btn-primary py-3 px-5" onclick="myFunction()">
+            </div>
+         
+        
+        </div>
+
+        <div class="col-md-6" >
+
+           
+           
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get today's date in the format YYYY-MM-DD
+    const today = new Date().toISOString().split('T')[0];
+    
+    // Set the minimum date for the input field to today
+    document.getElementById('dateInput').min = today;
+  </script>
+  <!-- <script>
+    function myFunction() {
+        var txt;
+        if (confirm("Are you sure you want to submit the form?")) {
+            // If user clicks OK, submit the form
+            document.getElementById("demo").submit();
+        } else {
+            // If user clicks Cancel, redirect to index page
+            window.location.href = "/organ_donation_form"; // Change "/index" to the actual URL of your index page
+        }
+    }
+</script> -->
+<!-- <script>
+  function myFunction() {
+    var txt;
+    if (confirm("Are you sure you want to submit the form?")) {
+      document.getElementById("demo").submit();
+     } 
+    //  else {
+    //   txt = "You pressed Cancel!";
+    // }
+    document.getElementById("demo").innerHTML = txt;
+  }
+  </script> -->
+  <script>
+		function myFunction() {
+		  alert("Are you sure you want to submit the form?");
+		}
+		</script>
+  
+
+  {% endblock %}
